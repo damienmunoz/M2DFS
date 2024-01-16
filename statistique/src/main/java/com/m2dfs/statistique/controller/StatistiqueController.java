@@ -16,12 +16,21 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "Statistique", description = "REST Api de Statistique")
 @RestController
 public class StatistiqueController {
-    List<StatistiqueModel> statistiques = new ArrayList<StatistiqueModel>();
+    List<StatistiqueModel> statistiquesEquipe = new ArrayList<StatistiqueModel>();
 	{
-		statistiques.add(new StatistiqueModel("1", "4", "2", "1"));
-		statistiques.add(new StatistiqueModel("2", "10", "3", "1"));
-		statistiques.add(new StatistiqueModel("3", "4", "4", "1"));
-		statistiques.add(new StatistiqueModel("4", "2", "5", "1"));
+		statistiquesEquipe.add(new StatistiqueModel("1", "4", "1", "2", "Real Madrid"));
+		statistiquesEquipe.add(new StatistiqueModel("2", "5", "2", "1", "FC Barcelone"));
+	}
+
+    List<StatistiqueModel> statistiquesJoueur = new ArrayList<StatistiqueModel>();
+	{
+		statistiquesJoueur.add(new StatistiqueModel("1", "0", "0", "1","Igor Stavo"));
+		statistiquesJoueur.add(new StatistiqueModel("2", "2", "1", "2", "Jacques Bravo"));
+		statistiquesJoueur.add(new StatistiqueModel("3", "1", "1", "0", "Fran Lucas"));
+
+		statistiquesJoueur.add(new StatistiqueModel("4", "3", "2", "1", "Pio Rinia"));
+        statistiquesJoueur.add(new StatistiqueModel("5", "1", "1", "1", "Ian Pelo"));
+		statistiquesJoueur.add(new StatistiqueModel("6", "1", "2", "0", "Killian Otis"));
 	}
 
     @ApiResponses(value = { 
@@ -33,12 +42,12 @@ public class StatistiqueController {
     @ApiOperation(value = "Retourne une statistique equipe avec l'id equipe", response = StatistiqueModel.class, tags = "Statistique")
     @GetMapping(value = "/getStatistiqueEquipe/{id}")
     public StatistiqueModel getStatistiqueEquipe(@PathVariable(value = "id") String id) {
-        return statistiques.stream().filter(x -> x.getId().equalsIgnoreCase(id)).collect(Collectors.toList()).get(0);
+        return statistiquesEquipe.stream().filter(x -> x.getId().equalsIgnoreCase(id)).collect(Collectors.toList()).get(0);
     }
 
 	@ApiOperation(value = "Retourne une statistique joueur avec l'id joueur", response = StatistiqueModel.class, tags = "Statistique")
 	@GetMapping(value = "/getStatistiqueJoueur/{id}")
 	public StatistiqueModel getStatistiqueJoueur(@PathVariable(value = "id") String id) {
-		return statistiques.stream().filter(x -> x.getId().equalsIgnoreCase(id)).collect(Collectors.toList()).get(0);
+		return statistiquesJoueur.stream().filter(x -> x.getId().equalsIgnoreCase(id)).collect(Collectors.toList()).get(0);
 	}
 }

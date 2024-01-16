@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiResponses;
 public class MatchController {
     List<MatchModel> matchs = new ArrayList<MatchModel>();
 	{
-		matchs.add(new MatchModel("1", "1-1", "Real Madrid", "FC Barcelona"));
+		matchs.add(new MatchModel("1", "1-0", "Real Madrid", "FC Barcelona"));
 		matchs.add(new MatchModel("2", "2-1", "FC Barcelona", "Real Madrid"));
 		matchs.add(new MatchModel("3", "2-3", "Real Madrid", "FC Barcelona"));
 	}

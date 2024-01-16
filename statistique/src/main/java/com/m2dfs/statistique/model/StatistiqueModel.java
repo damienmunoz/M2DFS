@@ -11,16 +11,19 @@ public class StatistiqueModel {
 	private String win;
     @ApiModelProperty(notes = "Défaite de statistique",name="loss",required=true,value="2")
 	private String loss;
+    @ApiModelProperty(notes = "Name de statistique",name="name",required=true,value="Real Madrid")
+	private String name;
 
 	public StatistiqueModel() {
 	}
 
-	public StatistiqueModel(String id, String goal, String win, String loss) {
+	public StatistiqueModel(String id, String goal, String win, String loss, String name) {
 		super();
 		this.goal = goal;
 		this.id = id;
         this.win = win;
 		this.loss = loss;
+        this.name = name;
 	}
 
 	public String getGoal() {
@@ -39,6 +42,10 @@ public class StatistiqueModel {
 		return id;
 	}
 
+    public String getName() {
+		return name;
+	}
+
 	public void setGoal(String goal) {
 		this.goal = goal;
 	}
@@ -55,8 +62,13 @@ public class StatistiqueModel {
 		this.loss = loss;
 	}
 
+    public void setName(String name) {
+		this.name = name;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Joueur [id=" + id + ", but=" + goal + ", win=" + win + ", loss=" + loss + "]";
+		return "Joueur [id=" + id + ", but=" + goal + ", win=" + win + ", loss=" + loss + ", name=" + name + "]";
 	}
 }
