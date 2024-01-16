@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EquipeApplication<equipe>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.m2dfs.equipe.EquipeApplication",
+            "projectName": "equipe",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
